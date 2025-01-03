@@ -1,16 +1,100 @@
-# gestion_gastos_by_barrios_antonio
+# Gestión de Gastos
 
-A new Flutter project.
+Aplicación móvil desarrollada en Flutter para la gestión personal de ingresos y gastos.
 
-## Getting Started
+## Características
 
-This project is a starting point for a Flutter application.
+- **Dashboard Principal**: Visualización rápida de balance mensual con gráficos
+- **Gestión de Usuarios**: Múltiples usuarios pueden gestionar sus finanzas
+- **Categorización**: Organización de ingresos y gastos por categorías personalizables
+- **Frecuencias**: Seguimiento de gastos periódicos (diarios, semanales, mensuales, anuales)
+- **Reportes**: Resumen mensual detallado de movimientos financieros
 
-A few resources to get you started if this is your first Flutter project:
+## Estructura del Proyecto
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Base de Datos
+- SQLite como motor de base de datos local
+- Tablas principales:
+  - Usuarios
+  - Categorías
+  - Frecuencias
+  - Gastos
+  - Ingresos
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Modelos
+- `Usuario`: Gestión de perfiles de usuarios
+- `Categoria`: Clasificación de ingresos y gastos
+- `Frecuencia`: Periodicidad de los gastos
+- `Gasto`: Registro de egresos
+- `Ingreso`: Registro de ingresos
+
+### Repositorios
+- `CategoriaRepository`: CRUD de categorías
+- `FrecuenciaRepository`: CRUD de frecuencias
+- `GastoRepository`: CRUD de gastos
+- `IngresoRepository`: CRUD de ingresos
+- `ResumenRepository`: Cálculos y reportes financieros
+- `UsuarioRepository`: CRUD de usuarios
+
+### Pantallas
+- `DashboardScreen`: Vista principal con resumen y gráficos
+- `UserScreen`: Gestión de usuarios
+- `CategoriasScreen`: Gestión de categorías
+- `FrecuenciaScreen`: Gestión de frecuencias
+- `GastosScreen`: Registro y visualización de gastos
+- `IngresosScreen`: Registro y visualización de ingresos
+- `ResumenScreen`: Reportes detallados
+
+## Requisitos
+
+- Flutter SDK
+- Dart SDK
+- SQLite
+
+## Dependencias Principales
+
+- `sqflite`: Base de datos SQLite
+- `fl_chart`: Visualización de gráficos
+- `intl`: Formateo de fechas y números
+- `path`: Manejo de rutas para la base de datos
+
+## Configuración del Entorno
+
+1. Clonar el repositorio
+2. Ejecutar `flutter pub get` para instalar dependencias
+3. Ejecutar `flutter run` para iniciar la aplicación
+
+## Migraciones
+
+El proyecto incluye sistema de migraciones para la base de datos:
+- Versión actual: 5
+- Archivo principal: `database_helper.dart`
+- Scripts de migración en carpeta `migrations`
+
+## Uso
+
+1. Crear usuario(s)
+2. Configurar categorías de ingresos y gastos
+3. Registrar movimientos financieros
+4. Consultar dashboard y reportes para análisis
+
+## Características de Seguridad
+
+- Almacenamiento local de datos
+- Sin sincronización en la nube
+- Acceso directo sin autenticación
+
+## Consideraciones Técnicas
+
+- Material Design como guía de diseño
+- Arquitectura basada en repositorios
+- Gestión de estado con StatefulWidget
+- Manejo de formularios con validación
+
+## Contribución
+
+1. Fork del repositorio
+2. Crear rama para feature (`git checkout -b feature/nombre`)
+3. Commit cambios (`git commit -m 'Descripción del cambio'`)
+4. Push a la rama (`git push origin feature/nombre`)
+5. Crear Pull Request
