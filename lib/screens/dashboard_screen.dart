@@ -173,8 +173,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 x: 0,
                 barRods: [
                   BarChartRodData(
-                    y: totalIngresos,
-                    colors: [Colors.green],
+                    toY: totalIngresos, // Cambio de "y" a "toY"
+                    color: Colors.green,
                     width: 20,
                   ),
                 ],
@@ -184,37 +184,33 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 x: 1,
                 barRods: [
                   BarChartRodData(
-                    y: totalEgresos,
-                    colors: [Colors.red],
+                    toY: totalEgresos, // Cambio de "y" a "toY"
+                    color: Colors.red,
                     width: 20,
                   ),
                 ],
                 showingTooltipIndicators: [0],
               ),
             ],
-            borderData: FlBorderData(
-              show: false,
-            ),
+            borderData: FlBorderData(show: false),
             titlesData: FlTitlesData(
-              leftTitles: SideTitles(showTitles: false),
-              bottomTitles: SideTitles(
-                showTitles: true,
-                getTextStyles: (context, value) => const TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 14,
+              leftTitles: AxisTitles( // Cambio de SideTitles a AxisTitles
+                sideTitles: SideTitles(showTitles: false),
+              ),
+              bottomTitles: AxisTitles( // Cambio de SideTitles a AxisTitles
+                sideTitles: SideTitles(
+                  showTitles: true,
+                  getTitlesWidget: (value, meta) {
+                    return Text(
+                      value == 0 ? 'Ingresos' : 'Egresos',
+                      style: const TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                      ),
+                    );
+                  },
                 ),
-                margin: 16,
-                getTitles: (double value) {
-                  switch (value.toInt()) {
-                    case 0:
-                      return 'Ingresos';
-                    case 1:
-                      return 'Egresos';
-                    default:
-                      return '';
-                  }
-                },
               ),
             ),
           ),
