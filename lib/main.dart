@@ -18,15 +18,17 @@ class MyApp extends StatelessWidget {
           color: Color.fromRGBO(74, 170, 238, 1),
         ),
         textTheme: TextTheme(
-          headline1: TextStyle(
+          headlineLarge: TextStyle( // Reemplazo de headline1
               fontSize: 32.0,
               fontWeight: FontWeight.bold,
               color: Color.fromARGB(255, 97, 178, 236)),
-          headline6: TextStyle(
+          titleLarge: TextStyle( // Reemplazo de headline6
               fontSize: 18.0,
               fontWeight: FontWeight.bold,
               color: Color(0xFF2A3E4C)),
-          bodyText2: TextStyle(fontSize: 14.0, color: Color(0xFF4F4F4F)),
+          bodyMedium: TextStyle( // Reemplazo de bodyText2
+              fontSize: 14.0, 
+              color: Color(0xFF4F4F4F)),
         ),
         buttonTheme: ButtonThemeData(
           buttonColor: Color(0xFF2A3E4C),
